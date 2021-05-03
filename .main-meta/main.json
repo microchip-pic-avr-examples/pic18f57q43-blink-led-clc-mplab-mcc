@@ -7,7 +7,7 @@
         "version": " ",
         "displayName": "PIC18F57Q43 blink led clc mplab mcc",
         "projectName": "pic18f57q43-blink-led-clc-mplab-mcc",
-        "shortDescription": "This code example will blink LED using the CLC module",
+        "shortDescription": "This code example will blink LED using the CLC module and TMR0",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=5.45.0"
@@ -19,12 +19,12 @@
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.1.185"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=4.1.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,9 +37,9 @@
             }
         },
         "author": "Jamus Griego",
-        "subcategories": [],
-        "peripherals": [],
-        "keywords": [],
+        "subcategories": ["MCC", ["Peripherals", "TMR0", "CLC"]],
+        "peripherals": ["TMR0", "CLC"],
+        "keywords": ["MCC", "Melody"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",

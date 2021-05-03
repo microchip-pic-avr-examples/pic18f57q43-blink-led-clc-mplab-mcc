@@ -1,41 +1,82 @@
 <!-- Please do not change this logo with link -->
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for pic18f57q43-blink-led-clc-mplab-mcc here
+# Hello World
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+This example shows how to configure the TMR0, and CLC on the PIC18F57Q43 Curiosity Nano to blink an LED using drivers in MPLAB Code Configurator (MCC). The example uses the Pin Manager to configure the correct pin to be an output and to provide the correct output voltage for Blinking the LED.
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+- [MPLAB Code Configurator](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator)
+- [PIC18-Q43 Family Product Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/pic-mcus/pic18-q43)
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) **5.45** or newer 
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) **2.31** or a newer compiler 
+- [MPLAB® Code Configurator (MCC)](https://www.microchip.com/mplab/mplab-code-configurator) **4.1.0** or newer 
+- [MPLAB® Melody Library](https://www.microchip.com/mplab/mplab-code-configurator) **1.37.24** or newer 
+- PIC18F-Q_DFP **1.11.185** or newer Device Pack
 
 ## Hardware Used
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- [Microchip PIC18F57Q43 Curiosity Nano Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DM164150)
+
 
 ## Setup
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+MCC with the Melody library was used to implement this example as shown in the following section.
+## TMR0 Configuration
+In the Device Resources window click the dropdown arrow next to "Drivers" to expand the choices
+
+![MCC - Driver](images/device_resources_drivers.png)
+
+In the Device Resources window scroll to find "Timer" click the dropdown arrow to expand the choices
+
+![MCC - Timer](images/device_resources_timer.png)
+
+In the Device Resources window scroll to find "TMR0" click the green plus symbol to add the driver to the project.
+
+![MCC - TMR0](images/device_resources_tmr0.png)
+
+*Device Resources*
+
+In the TMR0 / Easy View select Prescaler of 1:512, Clock Source of FOSC/4, Disable Syncronisation, and type in 0.5 for the requested period which comes out to 500ms. Notice actual period calculated by MPLAB.
+
+![MCC - TMR0](images/TMR0_configuration.png)
+
+## CLC Configuration
+In the Device Resources window scroll to find "CLC" click the dropdown arrow to expand the choices
+
+![MCC - CLC Initalizer](images/device_resources_CLC.png)
+
+Click the plus symbol on CLC1 to add the CLC module to the project.
+
+![MCC - CLC Initalizer](images/device_resources_clc1.png)
+
+For CLC settings select J K flip-flop with R from the dropdown menu. on Gate picture first input select TMR0 for the input to the clock of the J K flip-flop and complete the connecion by clicking on the first input to OR gate 1. click on the output boxes on OR gate 2 and 4 to create a 1 input to the J K flip-flop. This configuration should toggle the output of CLC1_out every time TMR0 rolls over.
+
+![MCC - CLC Easy View](images/clc1_configuration.png)
+
+*CLC Configuration*
+
+## Pin Configuration
+The Pin controlling the onboard LED on the Curiosity Nano board was configured using the Pins Grid View. The Pins Grid View is accessed by clicking on the Pins line in Project Resources.
+
+![MCC - Open Pin Manager](images/project_resources_system_pins.png)
+
+*Project Resources*
+
+Find CLC1 output the pin connected to the LED, RF3, was selected as an output by clicking the corresponding padlock symbol.
+
+![MCC - Set Pin to Output](images/pin_configuration_clc1.png)
+
+*Pins Grid View*s
 
 ## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+After having flashed the application to the PIC18F57Q43 Curiosity Nano, the onboard LED Blinks as the application code operates.
 
 ## Summary
 
-<!-- Summarize what the example has shown -->
+The example has shown how MCC can be used to easily configure TMR0, CLC module and output pins of the PIC18F57Q43 device. 
