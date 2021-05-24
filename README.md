@@ -43,12 +43,12 @@ In the Device Resources window scroll to find "TMR0" click the green plus symbol
 
 In the TMR0 / Easy View select Prescaler of 1:512, Clock Source of FOSC/4, Disable Syncronisation, and type in 0.5 for the requested period which comes out to 500ms. Notice actual period calculated by MPLAB.
 
-![MCC - TMR0](images/TMR0_configuration.png)
+![MCC - TMR0](images/tmr0_configuration.png)
 
 ## CLC Configuration
 In the Device Resources window scroll to find "CLC" click the dropdown arrow to expand the choices
 
-![MCC - CLC Initalizer](images/device_resources_CLC.png)
+![MCC - CLC Initalizer](images/device_resources_clc.png)
 
 Click the plus symbol on CLC1 to add the CLC module to the project.
 
