@@ -39,7 +39,7 @@
         "author": "Jamus Griego",
         "subcategories": ["Peripherals", "TMR0", "CLC"],
         "peripherals": ["PORT", "TMR0", "CLC"],
-        "keywords": ["MCC","Configurable Logic", "8/16-bit Timer", "Curiosity Nano" "Melody"],
+        "keywords": ["MCC","Configurable Logic", "8/16-bit Timer", "Curiosity Nano", "Melody"],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
