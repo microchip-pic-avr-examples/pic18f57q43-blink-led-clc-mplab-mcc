@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-blink-led-clc-mplab-mcc",
-        "version": " ",
+        "version": "1.0.0",
         "displayName": "Blink Using Integrated Logic",
         "projectName": "pic18f57q43-blink-led-clc-mplab-mcc",
         "shortDescription": "This example shows how to make a LED blink using the Configurable Logic Cell (CLC) module. The CLC is configured as a JK-toggle flip-flop and is toggled by a timer. Works with MPLAB X or MPLAB XPRESS IDE.",
